@@ -29,7 +29,7 @@ module load compilers/intel_2018.3.222 gpu/cuda-11.3 python/anaconda3
 
 #command part
 
-source activate nlp_ue
+source activate mgenre
 
 cd ~/codebases/nlp_ue/mGENRE/mGENRE_NEREL
 
