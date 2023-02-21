@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=rubq_single_prefix     # Job name
+#SBATCH --job-name=rubq_single               # Job name
 
 #SBATCH --partition=gpu_a100                      # queue name
 
@@ -18,7 +18,7 @@
 
 #SBATCH --time=01-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
-#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/rubq_single_prefix.log
+#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/rubq_single.log
 
 
 #module load part
@@ -33,4 +33,4 @@ source activate ue_abssum
 
 cd ~/codebases/ue_abssum
 
-HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_rubq_en_single DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/sp/wo_prefix_tree HYDRA_CONFIG_NAME=sp_rubq_en_single DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
