@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=rubq_single               # Job name
+#SBATCH --job-name=rubq_ensemble_prefix_pe     # Job name
 
 #SBATCH --partition=gpu_a100                      # queue name
 
@@ -18,7 +18,7 @@
 
 #SBATCH --time=01-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
-#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/rubq_single.log
+#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/rubq_ensemble_prefix_pe_mean_probas.log
 
 
 #module load part
@@ -31,6 +31,6 @@ module load python/anaconda3
 
 source activate ue_abssum
 
-cd ~/codebases/ue_abssum
+cd ~/codebases/ue_abssum_dev_t5
 
-HYDRA_CONFIG_PATH=configs/t5/sp/wo_prefix_tree HYDRA_CONFIG_NAME=sp_rubq_en_single DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_rubq_en_cuda_ensemble_xl_pe DEVICE_FOR_DATA_RESTORING="cpu" python run_ue_t5.py
