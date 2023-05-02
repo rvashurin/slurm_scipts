@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=sq_en_single_large_ft_diversity_2_0.7            # Job name
+#SBATCH --job-name=sq_en_single_large_ft_diverse_2_0.7            # Job name
 
 #SBATCH --partition=gpu                      # queue name
 
@@ -18,7 +18,7 @@
 
 #SBATCH --time=00-03:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
-#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/sq_en_single_large_ft_diversity_2_0.7.log
+#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/sq_en_single_large_ft_diverse_2_0.7.log
 
 
 #module load part
@@ -33,4 +33,4 @@ source activate ue_abssum
 
 cd ~/codebases/ue_abssum
 
-HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_sq_en_single_large_ft_diversity_2_0.7 DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_sq_en_single_large_ft_diverse_2_0.7 DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
