@@ -33,4 +33,4 @@ source activate ue_abssum
 
 cd ~/codebases/ue_abssum_dev_t5
 
-HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_sq_en_single_dropout_large_ft_44 DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_wdsq_en_single_dropout_large_ft_44 DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
