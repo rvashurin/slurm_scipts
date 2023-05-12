@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#SBATCH --job-name=sq_sq_embeddings     # Job name
+#SBATCH --job-name=sq_en_ensemble_large_ft            # Job name
 
-#SBATCH --partition=gpu                      # queue name
+#SBATCH --partition=gpu_a100                      # queue name
 
 #SBATCH --mail-type=all                      # mail events (none, begin, end, fail, all)
 
@@ -12,13 +12,13 @@
 
 #SBATCH --cpus-per-task=12                    # number of cpu cores per task
 
-#SBATCH --mem=100000                          # job memory request in megabytes
+#SBATCH --mem=70000                          # job memory request in megabytes
 
 #SBATCH --gpus=1                             # number of gpus
 
 #SBATCH --time=01-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
-#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/sq_sq_embeddings.log
+#SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/sq_en_ensemble_large_ft.log
 
 
 #module load part
@@ -31,6 +31,6 @@ module load python/anaconda3
 
 source activate ue_abssum
 
-cd ~/codebases/ue_abssum_ood
+cd ~/codebases/ue_abssum_dev_t5
 
-HYDRA_CONFIG_PATH=configs/t5/ood MAX_TRAIN_DATA_SIZE=1000 HYDRA_CONFIG_NAME=ood_sq_sq_embeddings DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/sp/with_prefix_tree HYDRA_CONFIG_NAME=sp_sq_en_cuda_ensemble_ft DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py

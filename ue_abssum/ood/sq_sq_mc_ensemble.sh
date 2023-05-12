@@ -12,7 +12,7 @@
 
 #SBATCH --cpus-per-task=12                    # number of cpu cores per task
 
-#SBATCH --mem=100000                          # job memory request in megabytes
+#SBATCH --mem=700000                          # job memory request in megabytes
 
 #SBATCH --gpus=1                             # number of gpus
 
@@ -31,6 +31,6 @@ module load python/anaconda3
 
 source activate ue_abssum
 
-cd ~/codebases/ue_abssum
+cd ~/codebases/ue_abssum_ood
 
-MAX_TRAIN_DATA_SIZE=1000 HYDRA_CONFIG_NAME=ood_sq_sq_mc_ensemble DEVICE_FOR_DATA_RESTORING="cpu" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/ood MAX_TRAIN_DATA_SIZE=1000 HYDRA_CONFIG_NAME=ood_sq_sq_mc_ensemble DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py

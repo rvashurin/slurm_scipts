@@ -31,6 +31,6 @@ module load python/anaconda3
 
 source activate ue_abssum
 
-cd ~/codebases/ue_abssum_dev_t5
+cd ~/codebases/ue_abssum_ood
 
-HYDRA_CONFIG_NAME=ood_sq_en_ru_embeddings DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/ood HYDRA_CONFIG_NAME=ood_sq_en_ru_embeddings DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py

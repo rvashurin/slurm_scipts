@@ -16,7 +16,7 @@
 
 #SBATCH --gpus=1                             # number of gpus
 
-#SBATCH --time=02-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
+#SBATCH --time=01-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
 #SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/rubq_rubq_single.log
 
@@ -31,6 +31,6 @@ module load python/anaconda3
 
 source activate ue_abssum
 
-cd ~/codebases/ue_abssum
+cd ~/codebases/ue_abssum_ood
 
-HYDRA_CONFIG_NAME=ood_rubq_rubq_single DEVICE_FOR_DATA_RESTORING="cpu" python run_ue_t5.py
+HYDRA_CONFIG_PATH=configs/t5/ood HYDRA_CONFIG_NAME=ood_rubq_rubq_single DEVICE_FOR_DATA_RESTORING="cuda:0" python run_ue_t5.py
