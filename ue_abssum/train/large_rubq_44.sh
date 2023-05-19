@@ -16,7 +16,7 @@
 
 #SBATCH --gpus=1                             # number of gpus
 
-#SBATCH --time=00-01:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
+#SBATCH --time=00-03:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
 #SBATCH --output=/gpfs/gpfs0/r.vashurin/ue_abssum_logs/train_rubq_large_44.log
 
