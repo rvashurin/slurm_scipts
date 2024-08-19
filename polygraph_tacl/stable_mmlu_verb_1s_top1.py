@@ -16,7 +16,7 @@
 
 #SBATCH --gres=gpu:4                             # number of gpus
 
-#SBATCH --time=00-06:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
+#SBATCH --time=00-10:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
 #SBATCH --output=/l/users/maxim.panov/log/tacl_instruct/stable_mmlu_verb_1s_top1.log
 
