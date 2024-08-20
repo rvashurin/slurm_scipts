@@ -17,4 +17,4 @@ conda activate polygraph
 cd ~/workspace/lm-polygraph
 
 HYDRA_CONFIG=`pwd`/examples/configs/instruct/polygraph_eval_mmlu_ling_1s.yaml polygraph_eval batch_size=2
- subsamble_eval_dataset=2000
+ subsample_eval_dataset=2000

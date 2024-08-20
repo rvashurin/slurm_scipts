@@ -29,4 +29,4 @@ source activate lm_polygraph
 
 cd /home/maxim.panov/workspace_vashurin/lm-polygraph
 
-HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/instruct/polygraph_eval_coqa_ling_1s.yaml polygraph_eval model=stablelm-2-12b-chat batch_size=2 cache_path=/l/users/maxim.panov/cache subsamble_eval_dataset=2000
+HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/instruct/polygraph_eval_coqa_ling_1s.yaml polygraph_eval model=stablelm-2-12b-chat batch_size=2 cache_path=/l/users/maxim.panov/cache subsample_eval_dataset=2000
