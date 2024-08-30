@@ -25,7 +25,7 @@ module load anaconda3
 
 #command part
 
-conda activate lm_polygraph_empirical
+source activate lm_polygraph_empirical
 
 cd /home/maxim.panov/workspace_vashurin/lm-polygraph-empirical
 
