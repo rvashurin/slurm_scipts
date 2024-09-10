@@ -16,7 +16,7 @@
 
 #SBATCH --gres=gpu:4                             # number of gpus
 
-#SBATCH --time=00-24:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
+#SBATCH --time=00-48:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
 #SBATCH --output=/l/users/maxim.panov/log/tacl_instruct/stable_mmlu_empirical_baselines.log
 
@@ -25,8 +25,8 @@ module load anaconda3
 
 #command part
 
-conda activate lm_polygraph_empirical
+source activate lm_polygraph_empirical
 
 cd /home/maxim.panov/workspace_vashurin/lm-polygraph-empirical
 
-HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/instruct/polygraph_eval_mmlu_empirical_baselines.yaml polygraph_eval model=stablelm-2-12b-chat batch_size=4 cache_path=/l/users/maxim.panov/cache
+HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/instruct/polygraph_eval_mmlu_empirical_baselines.yaml polygraph_eval model=stablelm-2-12b-chat batch_size=2 cache_path=/l/users/maxim.panov/cache
