@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#SBATCH --job-name=stable_coqa_empirical_baselines
+#SBATCH --job-name=llama_3.1_wmt14_csen
 
-#SBATCH --qos=gpu-12
+#SBATCH --qos=cscc-gpu-qos
 
 #SBATCH --partition=long                      # queue name
 
@@ -18,15 +18,19 @@
 
 #SBATCH --time=00-24:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
-#SBATCH --output=/l/users/maxim.panov/log/tacl_instruct/stable_coqa_empirical_baselines.log
+#SBATCH --output=/l/users/maxim.panov/log/detr_ue_nmt/llama_3.1_wmt14_csen
 
 
 module load anaconda3
 
 #command part
 
-source activate lm_polygraph_empirical
+source activate lm_polygraph
 
-cd /home/maxim.panov/workspace_vashurin/lm-polygraph-empirical
+cd /home/maxim.panov/workspace_vashurin/lm-polygraph
 
-HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/instruct/polygraph_eval_coqa_empirical_baselines.yaml polygraph_eval model=stablelm-2-12b-chat batch_size=2 cache_path=/l/users/maxim.panov/cache subsample_eval_dataset=2000
+git checkout detr_ue_nmt
+
+pip install -e .
+
+HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_csen.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache model=llama subsample_eval_dataset=2000 deberta_batch_size=1
