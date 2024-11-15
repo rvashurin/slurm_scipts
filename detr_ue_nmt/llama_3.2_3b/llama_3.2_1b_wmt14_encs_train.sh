@@ -4,7 +4,7 @@
 
 #SBATCH --qos=cscc-gpu-qos
 
-#SBATCH --partition=cscc-gpu-p                      # queue name
+#SBATCH --partition=long                      # queue name
 
 #SBATCH --mail-type=all                      # mail events (none, begin, end, fail, all)
 
@@ -14,7 +14,7 @@
 
 #SBATCH --mem-per-cpu=100000                         # job memory request in megabytes
 
-#SBATCH --gres=gpu:1                             # number of gpus
+#SBATCH --gres=gpu:4                             # number of gpus
 
 #SBATCH --time=02-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
@@ -33,4 +33,4 @@ git checkout detr_ue_nmt
 
 pip install -e .
 
-HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_encs.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache/train model=llama_1b subsample_eval_dataset=2000 deberta_batch_size=1 eval_split=train
+HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_encs.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache/train model=llama_1b subsample_eval_dataset=2000 deberta_batch_size=2 eval_split=train
