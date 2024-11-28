@@ -16,7 +16,7 @@
 
 #SBATCH --gres=gpu:4                             # number of gpus
 
-#SBATCH --time=02-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
+#SBATCH --time=03-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
 #SBATCH --output=/l/users/maxim.panov/log/detr_ue_nmt/llama_3.2_1b_wmt14_csruen_test_train_multigpu
 
@@ -40,3 +40,5 @@ HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph
 HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_ruen.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache model=llama_1b subsample_eval_dataset=2000 deberta_batch_size=1 +deberta_device=cuda:2 model.load_model_args.device_map=cuda:2 > /l/users/maxim.panov/log/detr_ue_nmt/llama_3.2_1b_wmt14_csruen_test_train_multigpu_ruen.log 2>&1 &
 
 HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_ruen.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache model=llama_1b subsample_eval_dataset=2000 deberta_batch_size=1 +deberta_device=cuda:3 model.load_model_args.device_map=cuda:3 eval_split=train > /l/users/maxim.panov/log/detr_ue_nmt/llama_3.2_1b_wmt14_csruen_test_train_multigpu_ruen_train.log 2>&1 &
+
+wait

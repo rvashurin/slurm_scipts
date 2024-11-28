@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=mistral_trivia_sentsar
+#SBATCH --job-name=mistral_wmt19_deen_sentsar
 
 #SBATCH --qos=cscc-gpu-qos
 
@@ -18,7 +18,7 @@
 
 #SBATCH --time=02-00:00:00                   # time limit hrs:min:sec or dd-hrs:min:sec
 
-#SBATCH --output=/l/users/maxim.panov/storage_vashurin/log/mistral_trivia_sentsar.log
+#SBATCH --output=/l/users/maxim.panov/storage_vashurin/log/mistral_wmt19_deen_sentsar.log
 
 module load anaconda3
 
@@ -32,4 +32,4 @@ git checkout sent_sar_variants
 
 pip install -e .
 
-PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_triviaqa_sentsar.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/storage_vashurin/polygraph_out subsample_eval_dataset=2000 deberta_batch_size=1 model.path=mistral-community/Mistral-7B-v0.2
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt19_deen_sentsar.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/storage_vashurin/polygraph_out subsample_eval_dataset=2000 deberta_batch_size=1 model.path=mistral-community/Mistral-7B-v0.2
