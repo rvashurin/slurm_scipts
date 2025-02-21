@@ -12,6 +12,8 @@ def main():
                 for line in lines:
                     if 'deberta_batch_size' in line:
                         line = line.replace('deberta_batch_size', 'nshot=0 deberta_batch_size')
+                    if 'test_train_multigpu' in line:
+                        line = line.replace('test_train_multigpu', 'test_train_multigpu_instruct_nshot_0')
                     file.write(line)
 
 if __name__ == '__main__':
