@@ -21,6 +21,8 @@ def main():
                         for line in lines:
                             if 'model=llama_1b' in line:
                                 line = line.replace('model=llama_1b', 'model=llama_1b model.path=' + model_path)
+                            if 'llama_3.2_1b' in line:
+                                line = line.replace('llama_3.2_1b', model)
                             f.write(line)
 
 if __name__ == '__main__':
