@@ -35,8 +35,8 @@ git checkout detr_ue_nmt
 
 pip install -e .
 
-TOKENIZERS_PARALLELISM=true OPENBLAS_MAIN_FREE=1 HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_csen_instruct.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache model=eurollm_9b model.path=utter-project/EuroLLM-9B-Instruct subsample_eval_dataset=2000 deberta_batch_size=1 +deberta_device=cuda:0 model.load_model_args.device_map=auto > /l/users/maxim.panov/log/detr_ue_nmt/euro9b_instruct_wmt14_csen_test_multigpu.log 2>&1 &
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python TOKENIZERS_PARALLELISM=true OPENBLAS_MAIN_FREE=1 HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_csen_instruct.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache model=eurollm_9b model.path=utter-project/EuroLLM-9B-Instruct subsample_eval_dataset=2000 deberta_batch_size=1 +deberta_device=cuda:0 model.load_model_args.device_map=auto > /l/users/maxim.panov/log/detr_ue_nmt/euro9b_instruct_wmt14_csen_test_multigpu.log 2>&1 &
 
-TOKENIZERS_PARALLELISM=true OPENBLAS_MAIN_FREE=1 HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_csen_instruct.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache/train model=eurollm_9b model.path=utter-project/EuroLLM-9B-Instruct subsample_eval_dataset=2000 deberta_batch_size=1 eval_split=train +deberta_device=cuda:0 model.load_model_args.device_map=auto > /l/users/maxim.panov/log/detr_ue_nmt/euro9b_instruct_wmt14_csen_train_multigpu.log 2>&1 &
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python TOKENIZERS_PARALLELISM=true OPENBLAS_MAIN_FREE=1 HF_HOME=/l/users/maxim.panov/cache HYDRA_CONFIG=`pwd`/examples/configs/polygraph_eval_wmt14_csen_instruct.yaml polygraph_eval batch_size=1 cache_path=/l/users/maxim.panov/cache/train model=eurollm_9b model.path=utter-project/EuroLLM-9B-Instruct subsample_eval_dataset=2000 deberta_batch_size=1 eval_split=train +deberta_device=cuda:0 model.load_model_args.device_map=auto > /l/users/maxim.panov/log/detr_ue_nmt/euro9b_instruct_wmt14_csen_train_multigpu.log 2>&1 &
 
 wait
