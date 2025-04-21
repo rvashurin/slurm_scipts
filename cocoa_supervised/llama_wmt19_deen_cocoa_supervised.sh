@@ -12,7 +12,9 @@
 
 #SBATCH --nodes=1
 
-#SBATCH --mem-per-cpu=100000                         # job memory request in megabytes
+#Sbatch --cpus-per-task=10                          # number of cores
+
+#SBATCH --mem-per-cpu=20000                         # job memory request in megabytes
 
 #SBATCH --gres=gpu:4                             # number of gpus
 
